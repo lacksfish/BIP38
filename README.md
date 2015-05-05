@@ -10,6 +10,18 @@ A Java implementation of the BIP-0038 Draft: [Passphrase-protected private key](
 
 `BIP38.decrypt(password, encryptedKey)` yields the decrypted get.
 
+## Compiling to runnable JAR (using Linux)
+
+1. Install gradle
+
+	`sudo apt-get install gradle'
+
+2. Execute
+
+	`gradle clean build fatJar`
+
+3. Runnable jar is in build/libs
+
 ## Example
 
    Key generation:
