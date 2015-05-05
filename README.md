@@ -14,7 +14,7 @@ A Java implementation of the BIP-0038 Draft: [Passphrase-protected private key](
 
 1. Install gradle
 
-	`sudo apt-get install gradle'
+	`sudo apt-get install gradle`
 
 2. Execute
 
