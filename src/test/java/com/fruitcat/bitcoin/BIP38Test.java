@@ -1,7 +1,6 @@
 package com.fruitcat.bitcoin;
 
-import com.google.bitcoin.core.Base58;
-import com.google.bitcoin.params.MainNetParams;
+import org.bitcoinj.core.Base58;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;

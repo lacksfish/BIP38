@@ -17,8 +17,8 @@
 
 package com.fruitcat.bitcoin;
 
-import com.google.bitcoin.core.AddressFormatException;
-import com.google.bitcoin.core.Base58;
+import org.bitcoinj.core.AddressFormatException;
+import org.bitcoinj.core.Base58;
 import org.bouncycastle.math.ec.ECPoint;
 
 import javax.crypto.Cipher;

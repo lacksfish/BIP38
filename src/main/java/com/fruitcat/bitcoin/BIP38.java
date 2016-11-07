@@ -21,8 +21,8 @@
 
 package com.fruitcat.bitcoin;
 
-import com.google.bitcoin.core.*;
-import com.google.bitcoin.params.MainNetParams;
+import org.bitcoinj.core.*;
+import org.bitcoinj.params.MainNetParams;
 import com.lambdaworks.crypto.SCrypt;
 import org.bouncycastle.asn1.sec.SECNamedCurves;
 import org.bouncycastle.asn1.x9.X9ECParameters;
@@ -300,7 +300,9 @@ public class BIP38 {
         BigInteger n = CURVE.getN();
         BigInteger pk = new BigInteger(1, passFactor).multiply(new BigInteger(1, factorB)).remainder(n);
 
-        ECKey privKey = new ECKey(pk, null);
+        // Old way, deprecated
+        // ECKey privKey = new ECKey(pk, null);
+        ECKey privKey = ECKey.fromPrivate(pk);
         return privKey.getPrivateKeyEncoded(params).toString();
     }
 

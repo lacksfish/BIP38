@@ -4,34 +4,32 @@ apply plugin: 'application'
 mainClassName = 'com.fruitcat.bitcoin.BIP38'
 
 repositories {
-      mavenCentral()
-      maven {
-             url "http://distribution.bitcoinj.googlecode.com/git/releases/"
-      }
-}
-
-task fatJar(type: Jar) {
-    from files(sourceSets.main.output.classesDir)
-    from {configurations.compile.collect {zipTree(it)}} {
-        exclude "META-INF/*.SF"
-        exclude "META-INF/*.DSA"
-        exclude "META-INF/*.RSA"
+  mavenCentral()
 }
 
 dependencies {
   compile 'com.madgag:scprov-jdk15on:1.47.0.3'
   compile 'com.google.guava:guava:15.0'
-  compile 'com.google:bitcoinj:0.10.3'
-  compile 'org.bouncycastle:bcprov-jdk16:1.46'
+  compile 'org.bitcoinj:bitcoinj-core:0.14.3'
+  compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+  compile group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.46'
   testCompile 'org.testng:testng:6.8.7'
 }
 
-test {
-   useTestNG()
+jar {
+  manifest {
+    attributes 'Main-Class': mainClassName
+  }
+  from configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+  exclude "META-INF/*.SF"
+  exclude "META-INF/*.DSA"
+  exclude "META-INF/*.RSA" 
+}
 
+test {
+  useTestNG()
 }
 
 manifest {
-    attributes 'Main-Class': 'com.fruitcat.bitcoin.BIP38'
-   }
+  attributes 'Main-Class': mainClassName
 }

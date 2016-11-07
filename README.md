@@ -18,9 +18,11 @@ A Java implementation of the BIP-0038 Draft: [Passphrase-protected private key](
 
 2. Execute
 
-	`gradle clean build fatJar`
+	`gradle clean jar`
 
 3. Runnable jar is in build/libs
+
+	`java -jar BIP38.jar`
 
 ## Example
 
